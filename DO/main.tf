@@ -31,8 +31,8 @@ resource "digitalocean_ssh_key" "default" {
 }
 
 
-resource "digitalocean_droplet" "dovpn" {
-    name  = "dovpn"
+resource "digitalocean_droplet" "gofreevpn" {
+    name  = "gofreevpn"
     image = "ubuntu-18-04-x64"
     region = "nyc1"
     size   = "512mb"
@@ -54,7 +54,7 @@ provisioner "remote-exec" {
   connection {
     user = "root"
     type = "ssh"
-    host = "${digitalocean_droplet.dovpn.ipv4_address}"
+    host = "${digitalocean_droplet.gofreevpn.ipv4_address}"
     #private_key = "${file(var.SSH_PVTKEY)}"
     private_key = file("${var.SSH_PVTKEY}")
     #private_key = "${file(var.pvt_key)}"
@@ -63,7 +63,7 @@ provisioner "remote-exec" {
 }
 
 output "ip" {
-    value = "${digitalocean_droplet.dovpn.ipv4_address}"
+    value = "${digitalocean_droplet.gofreevpn.ipv4_address}"
 }
 
 

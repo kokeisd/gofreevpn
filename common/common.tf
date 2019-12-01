@@ -1,8 +1,7 @@
 $govpnip=terraform output ip
 $username=terraform output username
 
-#ssh -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no -i $HOME/.ssh/dovpn_id_rsa root@$govpnip
-scp -o StrictHostKeyChecking=no -i $HOME/.ssh/dovpn_id_rsa  root@${govpnip}:/root/${username}.ovpn ${env:USERPROFILE}\OpenVPN\config\
+scp -o StrictHostKeyChecking=no -i $HOME/.ssh/gofreevpn_id_rsa  root@${govpnip}:/root/${username}.ovpn ${env:USERPROFILE}\OpenVPN\config\
 
 $env:Path += ";C:\Program Files\OpenVPN\bin\" 
 openvpn-gui.exe --connect ${username}
