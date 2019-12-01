@@ -9,8 +9,6 @@
 function InstallApp {
 	Param ([string]$appName)
 	Write-Output "Installing $appName"
-	#Get-AppxPackage $appName -AllUsers | Remove-AppxPackage
-    #Get-AppXProvisionedPackage -Online | Where DisplayName -like $appName | Remove-AppxProvisionedPackage -Online
     choco install $appName -y --force 
 }
 
@@ -29,7 +27,6 @@ if(-not($testchoco)){
 else{
     Write-Warning "Chocolatey Version $testchoco has already been installed"
 }
-
 
 
 foreach ($software in $softwarelist) {
@@ -72,7 +69,3 @@ if (!(Test-Path "C:\Program Files\OpenSSH-Win64\ssh.exe" )){
         
     }
 }
-
-
-
-

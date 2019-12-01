@@ -1,6 +1,4 @@
-================
-gofreevpn
-================
+$ gofreevpn
 
 This package makes use of free tiers of public cloud providers to build a private VPN and establish a secure VPN connection on Windows 10.
 
@@ -23,10 +21,14 @@ This package will first install the following softwares on your Windows 10 deskt
 
 
 #Usage
-DigitalOcean
+First off, you need to select the cloud provider where you want to build your VPN server. The current support Google Cloud Platform and DigitalOcean
+
+##DigitalOcean
+To use DigitalOcean, you need first create a free account and generate a API token([link](https://www.digitalocean.com/docs/api/create-personal-access-token/))
+
 $env:TF_VAR_DO_TOKEN = "xxx"
 
-GCP
+##GCP
 $env:TF_VAR_GCP_SAK_JSON="C:\credentials\My First Project-d7c90d1d29eb.json"
 $env:TF_VAR_GCP_ZONE="asia-east2"
 $env:TF_VAR_GCP_ZONE="us-west1-a"

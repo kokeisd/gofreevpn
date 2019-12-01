@@ -6,7 +6,6 @@ scp -o StrictHostKeyChecking=no -i $HOME/.ssh/gofreevpn_id_rsa  root@${govpnip}:
 $env:Path += ";C:\Program Files\OpenVPN\bin\" 
 openvpn-gui.exe --connect ${username}
 
-
 if (!(Test-Path ${env:USERPROFILE}\OpenVPN\config\${username}.ovpn) ) {
     Write-Error "OpenVPN config file missing."
     exit 1
