@@ -1,5 +1,5 @@
 # gofreevpn
-#Why
+# Why
 
 There are a number of good reasons why people would like to use VPN to secure their online traffic or prevent their real IP address from being identified by the other side of commnuication. For example, some online shopping or video streamming services only provide services to certain regions(based on your IP address). Or in some situations where you can visit a website directly because of firewall or DNS restrictions.
 
@@ -10,7 +10,7 @@ By making use of the free tier compute resource provided by big cloud provider e
 
 
 
-###The following softwares are installed along with with the setup.ps1
+### The following softwares are installed along with with the setup.ps1
 
 *chocolatey - the package manager tool to install other tools
 *terraform - to automate the VM provisioning on cloud platforms
@@ -18,7 +18,7 @@ By making use of the free tier compute resource provided by big cloud provider e
 *OpenVPN client - to connect to the OpenVPN server for secure internet traffic
 
 
-#Usage
+# Usage
 DigitalOcean
 $env:TF_VAR_DO_TOKEN = "xxx"
 
