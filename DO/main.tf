@@ -1,12 +1,13 @@
-provider "digitalocean" {
-  token = "${var.DO_TOKEN}"
-}
-
-
 #variable "HOME" {}
 variable "SSH_PUBKEY" {}
 variable "SSH_PVTKEY" {}
 variable "DO_TOKEN" {}
+variable "DO_REGION" {}
+
+
+provider "digitalocean" {
+  token = "${var.DO_TOKEN}"
+}
 
 resource "random_integer" "default" {
   min     = 1
@@ -33,7 +34,8 @@ resource "digitalocean_ssh_key" "default" {
 resource "digitalocean_droplet" "gofreevpn" {
     name  = "gofreevpn"
     image = "ubuntu-18-04-x64"
-    region = "nyc1"
+    #region = "nyc1"
+    region = "${var.DO_REGION}"
     size   = "512mb"
     ssh_keys = [ "${digitalocean_ssh_key.default.id}" ]
 

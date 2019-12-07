@@ -29,10 +29,11 @@ To use DigitalOcean, you need first create a free account and generate a API tok
 ``` Powershell
 # Run with admin permission
 $env:TF_VAR_DO_TOKEN = "xxx"
+$env:TF_VAR_DO_REGION = "NYC1"   # list of regions can be found [here](https://www.digitalocean.com/docs/platform/availability-matrix/)
 ```
 
 ## GCP
-For GCP, please following this [link](https://cloud.google.com/community/tutorials/getting-started-on-gcp-with-terraform) to create a project and generate a credential fule
+For GCP, you can follow this [link](https://cloud.google.com/community/tutorials/getting-started-on-gcp-with-terraform) to create a project and generate a credential file.
 
 ``` Powershell
 $env:TF_VAR_GCP_SAK_JSON="C:\dir\mycred.json"
