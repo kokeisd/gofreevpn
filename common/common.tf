@@ -10,3 +10,6 @@ if (!(Test-Path ${env:USERPROFILE}\OpenVPN\config\${username}.ovpn) ) {
     Write-Error "OpenVPN config file missing."
     exit 1
  }
+
+
+ 

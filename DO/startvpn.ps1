@@ -1,8 +1,11 @@
 # Run the setup.ps1
-
+. ..\common\common.ps1
 .\setenv.ps1
 ..\common\setup.ps1
 
+
+Stop-Openvpn
+Stop-Gui
 terraform destroy -auto-approve
 
 terraform init
@@ -37,5 +40,7 @@ if (!(Test-Path ${env:USERPROFILE}\OpenVPN\config\$username.ovpn) ) {
 $env:Path += ";C:\Program Files\OpenVPN\bin\" 
 openvpn-gui.exe --connect $username
 
-
-
+Start-Sleep -Seconds 10
+#$vpnserver="10.8.0.1"
+$vpnservers = @("10.8.0.1")
+Check-Connectivity($vpnservers)

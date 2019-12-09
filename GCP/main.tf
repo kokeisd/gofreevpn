@@ -10,6 +10,7 @@ variable "SSH_PUBKEY" {}
 variable "SSH_PVTKEY" {}
 variable "GCP_ZONE" {}
 variable "GCP_SSH_USER" {}
+variable "GCP_VPN_USER" {}
 
 
 resource "random_string" "number" {
@@ -75,7 +76,7 @@ resource "google_compute_instance" "default" {
         "sleep 60",  # dont know why it need to wait for sometime 
         "sudo sed -i 's/nameserver 169.254.169.254/nameserver 8.8.8.8/' /etc/resolv.conf",  # fix dns resolution issue on client
         # "chmod +x /tmp/bootstrap.sh",
-        "sudo bash /tmp/bootstrap.sh gcpvpnuser1",
+        "sudo bash /tmp/bootstrap.sh ${var.GCP_VPN_USER}",
       ]
     }
   
