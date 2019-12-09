@@ -4,14 +4,14 @@
 # }
 
 #variable "sshkey" {
-#  default = "E:/.ssh/dovpn_id_rsa.pub"
+#  default = "E:/.ssh/gofreevpn_id_rsa.pub"
 #}
  
 # variable "pvt_key" {
 #   default = "E:/.ssh/id_rsa"
 # }
 # variable "pvt_key" {
-#    default = "E:/.ssh/dovpn_id_rsa"
+#    default = "E:/.ssh/gofreevpn_id_rsa"
 # 
 # }
 

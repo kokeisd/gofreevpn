@@ -1,12 +1,13 @@
-provider "digitalocean" {
-  token = "${var.DO_TOKEN}"
-}
-
-
 #variable "HOME" {}
 variable "SSH_PUBKEY" {}
 variable "SSH_PVTKEY" {}
 variable "DO_TOKEN" {}
+variable "DO_REGION" {}
+
+
+provider "digitalocean" {
+  token = "${var.DO_TOKEN}"
+}
 
 resource "random_integer" "default" {
   min     = 1
@@ -23,21 +24,19 @@ resource "random_string" "number" {
 
 
 resource "digitalocean_ssh_key" "default" {
-  name = "govpn"
+  name = "gofreevpn"
   #public_key = file("${var.sshkey}")
   public_key = file("${var.SSH_PUBKEY}")
 
-  #public_key = file("E:/.ssh/id_rsa.pub")
 }
 
 
-resource "digitalocean_droplet" "dovpn" {
-    name  = "dovpn"
+resource "digitalocean_droplet" "gofreevpn" {
+    name  = "gofreevpn"
     image = "ubuntu-18-04-x64"
-    region = "nyc1"
+    #region = "nyc1"
+    region = "${var.DO_REGION}"
     size   = "512mb"
-  #  ssh_keys = [laptop]
-   # ssh_keys = [digitalocean_ssh_key.default.fingerprint]
     ssh_keys = [ "${digitalocean_ssh_key.default.id}" ]
 
   provisioner "file" {
@@ -48,22 +47,20 @@ resource "digitalocean_droplet" "dovpn" {
 provisioner "remote-exec" {
     inline = [
       "chmod +x /tmp/bootstrap.sh",
-      "sudo /tmp/bootstrap.sh",
+      "sudo /tmp/bootstrap.sh dovpnuser1",
     ]
   }
   connection {
     user = "root"
     type = "ssh"
-    host = "${digitalocean_droplet.dovpn.ipv4_address}"
-    #private_key = "${file(var.SSH_PVTKEY)}"
+    host = "${digitalocean_droplet.gofreevpn.ipv4_address}"
     private_key = file("${var.SSH_PVTKEY}")
-    #private_key = "${file(var.pvt_key)}"
     timeout = "2m"
 }
 }
 
 output "ip" {
-    value = "${digitalocean_droplet.dovpn.ipv4_address}"
+    value = "${digitalocean_droplet.gofreevpn.ipv4_address}"
 }
 
 
