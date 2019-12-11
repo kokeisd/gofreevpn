@@ -35,6 +35,7 @@ foreach ($software in $softwarelist) {
     if (-not($isInstalled)){
         if ($software -eq "OpenVPN") {
             choco install openvpn --params "'/SELECT_SHORTCUTS=1 /SELECT_OPENVPNGUI'" -y
+            $env:Path += ";C:\Program Files\OpenVPN\bin\" 
         }
         else {
         InstallApp $software
@@ -46,9 +47,9 @@ foreach ($software in $softwarelist) {
 }
 
 
-Write-Host "====================="
-Write-Host "Summary of software setup"
-Write-Host "====================="
+Write-Host "=============================="
+Write-Host "Summary of softwares installed"
+Write-Host "=============================="
 foreach ($software in $softwarelist) {
     $installedversion = choco list --local-only | Where-object { $_.ToLower().Contains($software.ToLower()) }
     Write-Host -ForegroundColor Green  $installedversion 
@@ -58,7 +59,7 @@ foreach ($software in $softwarelist) {
 if (!(Test-Path "C:\Program Files\OpenSSH-Win64\ssh.exe" )){
     Write-Error "Openssh has not been installed. Exiting."
     exit 1
- } else {`
+ } else {
     Write-Host "Openssh has been installed successfully. Generating key pair..."
     $env:Path += ";C:\Program Files\OpenSSH-Win64\"
     if(!(Test-Path "$HOME/.ssh/gofreevpn_id_rsa" )){

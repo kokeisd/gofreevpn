@@ -1,4 +1,3 @@
-#variable "HOME" {}
 variable "SSH_PUBKEY" {}
 variable "SSH_PVTKEY" {}
 variable "DO_TOKEN" {}
@@ -25,9 +24,7 @@ resource "random_string" "number" {
 
 resource "digitalocean_ssh_key" "default" {
   name = "gofreevpn"
-  #public_key = file("${var.sshkey}")
   public_key = file("${var.SSH_PUBKEY}")
-
 }
 
 
@@ -47,7 +44,7 @@ resource "digitalocean_droplet" "gofreevpn" {
 provisioner "remote-exec" {
     inline = [
       "chmod +x /tmp/bootstrap.sh",
-      "sudo /tmp/bootstrap.sh dovpnuser1",
+      "sudo /tmp/bootstrap.sh ${var.GCP_VPN_USER}",
     ]
   }
   connection {
@@ -56,7 +53,7 @@ provisioner "remote-exec" {
     host = "${digitalocean_droplet.gofreevpn.ipv4_address}"
     private_key = file("${var.SSH_PVTKEY}")
     timeout = "2m"
-}
+  }
 }
 
 output "ip" {
