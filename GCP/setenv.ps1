@@ -7,7 +7,7 @@
 
 [Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12 
 #$env:TF_VAR_GCP_SAK_JSON="c:\keys\testproject-d51d406f63eb.json"
-$env:TF_VAR_GCP_SAK_JSON="C:\credentials\My First Project-d7c90d1d29eb.json"
+# $env:TF_VAR_GCP_SAK_JSON="C:\credentials\My First Project-d7c90d1d29eb.json"
 $env:TF_VAR_GCP_PROJ_ID="neural-store-233409"
 $env:TF_VAR_SSH_PUBKEY ="$HOME/.ssh/gofreevpn_id_rsa.pub"
 $env:TF_VAR_SSH_PVTKEY = "$HOME/.ssh/gofreevpn_id_rsa"
