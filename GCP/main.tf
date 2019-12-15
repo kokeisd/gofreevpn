@@ -21,16 +21,10 @@ resource "random_string" "number" {
   special = false
 }
 
-// Terraform plugin for creating random ids
-# resource "random_id" "instance_id" {
-#  byte_length = 8
-# }
-
 // Configure the Google Cloud provider
 provider "google" {
  credentials = file("${var.GCP_SAK_JSON}")
  project     = "${var.GCP_PROJ_ID}"
- #region      = "us-west1"
 }
 
 // A single Google Cloud Engine instance
@@ -63,7 +57,6 @@ resource "google_compute_instance" "default" {
 
   metadata = {
    ssh-keys = "${var.GCP_SSH_USER}:${file(var.SSH_PUBKEY)}"
-    #ssh-keys = "root:${file(var.SSH_PUBKEY)}"
   }
 
   provisioner "file" {
