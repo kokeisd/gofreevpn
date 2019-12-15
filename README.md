@@ -22,7 +22,6 @@ This package will first install the following softwares on your Windows 10 deskt
 
 
 # Usage
-#####################################################
 First off, you need to select the cloud provider where you want to build your VPN server. The current support Google Cloud Platform and DigitalOcean
 
 ## DigitalOcean
