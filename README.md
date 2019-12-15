@@ -29,8 +29,8 @@ To use DigitalOcean, you need first create a free account and generate a API tok
 
 ``` Powershell
 # Run with admin permission
-$env:TF_VAR_DO_TOKEN = "xxx"
-$env:TF_VAR_DO_REGION = "NYC1"   # list of regions can be found [here](https://www.digitalocean.com/docs/platform/availability-matrix/)
+$env:TF_VAR_DO_TOKEN = "<access_token>"
+$env:TF_VAR_DO_REGION = "<region>"   # list of regions can be found [here](https://www.digitalocean.com/docs/platform/availability-matrix/)
 ```
 
 ## GCP
@@ -38,6 +38,6 @@ For GCP, you can follow this [link](https://cloud.google.com/community/tutorials
 
 ``` Powershell
 $env:TF_VAR_GCP_SAK_JSON="<path_to_cred_file>"
-$env:TF_VAR_GCP_ZONE="us-west1-a"  # list of zone can be found [here](https://cloud.google.com/about/locations/)
+$env:TF_VAR_GCP_ZONE="<zone>"  # list of zone can be found [here](https://cloud.google.com/about/locations/)
 $env:TF_VAR_GCP_PROJ_ID="<project_id>"
 ```
