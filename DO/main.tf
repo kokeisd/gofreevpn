@@ -2,6 +2,7 @@ variable "SSH_PUBKEY" {}
 variable "SSH_PVTKEY" {}
 variable "DO_TOKEN" {}
 variable "DO_REGION" {}
+variable "DO_VPN_USER" {}
 
 
 provider "digitalocean" {
@@ -43,8 +44,10 @@ resource "digitalocean_droplet" "gofreevpn" {
 
 provisioner "remote-exec" {
     inline = [
+      "apt update && apt install dos2unix -y",
+      "dos2unix /tmp/bootstrap.sh",
       "chmod +x /tmp/bootstrap.sh",
-      "sudo /tmp/bootstrap.sh ${var.GCP_VPN_USER}",
+      "sudo /tmp/bootstrap.sh ${var.DO_VPN_USER}",
     ]
   }
   connection {
