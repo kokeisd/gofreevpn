@@ -44,7 +44,7 @@ resource "google_compute_instance" "default" {
 
 
 // Make sure flask is installed on all new instances for later steps
- metadata_startup_script = "sudo apt-get update; sudo apt-get install -yq build-essential python-pip rsync; pip install flask"
+ # metadata_startup_script = "sudo apt-get update; sudo apt-get install -yq build-essential python-pip rsync; pip install flask"
 
  network_interface {
    network = "default"
@@ -69,8 +69,8 @@ resource "google_compute_instance" "default" {
         "sleep 60",  # dont know why it need to wait for sometime 
         "sudo sed -i 's/nameserver 169.254.169.254/nameserver 8.8.8.8/' /etc/resolv.conf",  # fix dns resolution issue on client
         # "chmod +x /tmp/bootstrap.sh",
-        "apt update && apt install dos2unix -y",
-        "dos2unix /tmp/bootstrap.sh",
+        "sudo apt update && sudo apt install dos2unix -y",
+        "sudo dos2unix /tmp/bootstrap.sh",
         "sudo bash /tmp/bootstrap.sh ${var.GCP_VPN_USER}",
       ]
     }
