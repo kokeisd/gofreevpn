@@ -4,9 +4,9 @@ This package makes use of free tiers of public cloud providers to build a free p
 
 # Why
 
-There are a number of good reasons why people would like to use VPN to secure their online traffic or prevent their real IP address from being identified by the other side of commnuication. For example, some online shopping or video streamming services only provide services to certain regions(based on your IP address). Or in some situations where you can visit a website directly because of firewall or DNS restrictions.
+There are a number of good reasons why people would like to use VPN to secure their online traffic or prevent their real IP address from being identified by the other side of commnuication. For example, some online shopping or video streamming services only provide services to certain regions(based on your IP address). Or in some situations where you need to visit a website indirectly because of firewall or DNS restrictions.
 
-In the market, there are quite a number of good VPN services like NordVPN and Sharkvpn. They are inexpensive, low latency and reliable. Having said that you still have to pay. By making use of the free tier compute resource provided by big cloud providers e.g. AWS, Microsoft Azure,Google and DigitalOcean, you can spin up virtual machine and setup your own free VPN services!
+In the market, there are quite a number of good VPN services like NordVPN and Sharkvpn. They are inexpensive, low latency and reliable. Having said that you still have to pay. By taking advantage of the free tier compute resource provided by big cloud providers e.g. AWS, Microsoft Azure,Google and DigitalOcean, you can spin up virtual machine and setup your own free VPN services!
 
 
 # How this package works
