@@ -22,7 +22,9 @@ This package will first install the following softwares on your Windows 10 deskt
 
 
 # Usage
-First off, you need to select the cloud provider where you want to build your VPN server. The current support Google Cloud Platform and DigitalOcean
+After you decided the public cloud provider that you want to build your VPN server(Currently this project supports Google Cloud Platform and DigitalOcean), you need to register a free access with the cloud provider.
+
+Once you have access to the free tier cloud services, the next step is to generate the API  token so that your VPN server can be built programmatically. The API token generation steps varies depending on the cloud provider you chose. 
 
 ## DigitalOcean
 To use DigitalOcean, you need first create a free account and generate a API token([link](https://www.digitalocean.com/docs/api/create-personal-access-token/))
